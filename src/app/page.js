@@ -1,6 +1,21 @@
 "use client";
 
+function Courses() {
+    
+  return (
+    <div className= "py-5">
+      <h2 className= "underline text-2xl">Availiable Courses</h2>
+      <ul>
+        <li>"fetch data goes here"</li>
+        <li>"here"</li>
+        <li>"and here"</li>
+       
+      </ul>
 
+    </div>
+  )
+
+}
 export default function Home() {
 
   function handleClick() {
@@ -10,19 +25,6 @@ export default function Home() {
   
 
   return (
-      <div className="flex justify-center text-xl px-5">
-        <h1>The following are our currently availble courses: </h1>
-      
-      
-      
-      
-      <div className="flex justify-center underline px-5 mx-auto">
-        <ul>
-          <li>
-            <p>"Fetch list of courses here from db"</p>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <div></div>
   );
 }

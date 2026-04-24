@@ -34,6 +34,22 @@ export function LoadStudent () {
     <Link href="/student" className="bg-pink-400  px-8">Student Page</Link>
   </>)
 }
+function Courses() {
+    
+  return (
+    <div className= "py-5">
+      <h2 className= "underline text-2xl">Availiable Courses</h2>
+      <ul>
+        <li>"fetch data goes here"</li>
+        <li>"here"</li>
+        <li>"and here"</li>
+       
+      </ul>
+
+    </div>
+  )
+
+}
 export default function RootLayout({ children }) {
   return (
     <html
@@ -44,14 +60,20 @@ export default function RootLayout({ children }) {
         <div>
           <h1  className="flex justify-center text-4xl italic py-15">Welcome to the Course Scheduler</h1>
 
-          <nav className="flex items-center justify-center">
-            <Link href="/"      className="bg-blue-400  text-2xl px-8 py-5">Home</Link>
+          <nav className="flex items-center justify-center border">
+            <Link href="/"      className="bg-blue-400 text-2xl px-8 py-5">Home</Link>
             <Link href="/login" className="bg-yellow-400  text-2xl px-8 py-5">Login</Link>
            <LoadStudent/>
            <LoadTeacher/>
           </nav>
         </div>
-
+        <div className="flex justify-center text-xl px-5">
+          <h1 className="text-xl">The following are our currently available courses: </h1>
+      
+            <div className="flex justify-center mx-auto">
+              <Courses/>
+            </div>
+        </div>
 
         {children}
       </body>

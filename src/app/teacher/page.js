@@ -19,7 +19,7 @@ export default function TeacherPage(){
         <div>
             <main>
                 <div className="py-8 justify-center">
-                    <h1>Welcome, {instructorName} </h1>
+                    <h1 className="text-3xl italic">Welcome, {instructorName} </h1>
                 </div>
                 
                 <form className="border justify-center text-center space-y-2" action={submitForm}>
@@ -47,7 +47,7 @@ export default function TeacherPage(){
                         <label htmlFor="teacher" className="block text-sm font-medium text-gray-700">Teacher</label>
                         <input className="border border-black bg-white Focus:ring-2 focus:ring-blue-500 focus:border-blue-500" id="teacher" required name="teacher" placeholder="Teacher Name"></input>
                     </div>
-                    <button type="submit" className="flex-grow-0 text-white bg-blue-600 rounded-md p-3">
+                    <button type="submit" className="flex-grow-0 text-white bg-blue-600 rounded-md p-4">
                         Submit Class
                     </button>
                 </form>
