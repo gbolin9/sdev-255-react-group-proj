@@ -18,7 +18,22 @@ export const metadata = {
 };
 
 // this file contains shared components for the pages
-
+function LoadTeacher() {
+  return (
+  <>
+    <Link href="/" className="px-8">Home</Link>
+    <Link href="/login" className="px-8">Login</Link>
+    <Link href="/teacher" className="px-8">Course Instructor Page</Link>
+  </>)
+}
+function LoadStudent () {
+  return (
+  <>
+    <Link href="/" className="px-8">Home</Link>
+    <Link href="/login" className="px-8">Login</Link>
+    <Link href="/student" className="px-8">Student Page</Link>
+  </>)
+}
 export default function RootLayout({ children }) {
   return (
     <html
@@ -27,14 +42,14 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         <div>
-          <h1  className="flex justify-center">Welcome to the Course Scheduler</h1>
+          <h1  className="flex justify-center text-4xl italic py-15">Welcome to the Course Scheduler</h1>
           <nav className="flex items-center justify-center">
-            <Link href="/" className="px-8">Home</Link>
-            <Link href="/login" className="px-8">Login</Link>
-            <Link href="/student" className="px-8">Student Page</Link>
-            <Link href="/teacher" className="px-8">Course Instructor Page</Link>
+          <Link href="/" className="text-2xl px-8 py-5">Home</Link>
+          <Link href="/login" className="text-2xl px-8 py-5">Login</Link>
           </nav>
         </div>
+
+
         {children}
       </body>
     </html>
