@@ -21,17 +21,17 @@ export const metadata = {
 function LoadTeacher() {
   return (
   <>
-    <Link href="/" className="px-8">Home</Link>
-    <Link href="/login" className="px-8">Login</Link>
-    <Link href="/teacher" className="px-8">Course Instructor Page</Link>
+    <Link href="/" className="bg-blue-400 px-8">Home</Link>
+    <Link href="/login" className="bg-yellow-400 px-8">Login</Link>
+    <Link href="/teacher" className="bg-red-400 px-8">Course Instructor Page</Link>
   </>)
 }
-function LoadStudent () {
+export function LoadStudent () {
   return (
   <>
-    <Link href="/" className="px-8">Home</Link>
-    <Link href="/login" className="px-8">Login</Link>
-    <Link href="/student" className="px-8">Student Page</Link>
+    <Link href="/" className="bg-blue-400 px-8">Home</Link>
+    <Link href="/login" className="bg-yellow-400 px-8">Login</Link>
+    <Link href="/student" className="bg-pink-400  px-8">Student Page</Link>
   </>)
 }
 export default function RootLayout({ children }) {
@@ -43,10 +43,12 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <div>
           <h1  className="flex justify-center text-4xl italic py-15">Welcome to the Course Scheduler</h1>
-          
+
           <nav className="flex items-center justify-center">
-            <Link href="/"      className="text-2xl px-8 py-5">Home</Link>
-            <Link href="/login" className="text-2xl px-8 py-5">Login</Link>
+            <Link href="/"      className="bg-blue-400  text-2xl px-8 py-5">Home</Link>
+            <Link href="/login" className="bg-yellow-400  text-2xl px-8 py-5">Login</Link>
+           <LoadStudent/>
+           <LoadTeacher/>
           </nav>
         </div>
 
