@@ -43,9 +43,10 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <div>
           <h1  className="flex justify-center text-4xl italic py-15">Welcome to the Course Scheduler</h1>
+          
           <nav className="flex items-center justify-center">
-          <Link href="/" className="text-2xl px-8 py-5">Home</Link>
-          <Link href="/login" className="text-2xl px-8 py-5">Login</Link>
+            <Link href="/"      className="text-2xl px-8 py-5">Home</Link>
+            <Link href="/login" className="text-2xl px-8 py-5">Login</Link>
           </nav>
         </div>
 
