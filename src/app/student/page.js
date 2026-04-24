@@ -1,7 +1,7 @@
 "use client";
 
 
-export default function Page() {
+export default function StudentPage() {
 
   function handleClick() {
     alert("Build course clicked");
