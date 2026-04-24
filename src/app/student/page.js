@@ -6,7 +6,22 @@ export default function Page() {
   function handleClick() {
     alert("Build course clicked");
   }
+  function Courses() {
+    
+    return (
+      <div>
+        <h2>Availiable Courses</h2>
+        <ul>
+          <li>Course 1</li>
+          <li>Course 1</li>
+          <li>Course 1</li>
+         
+        </ul>
 
+      </div>
+    )
+
+  }
   return (
     <div>
       <h1 className="text-center">Course Builder</h1>
@@ -19,6 +34,7 @@ export default function Page() {
       </button>
 
       <h1 className="text-center">My Courses</h1>
+      <Courses/>
 
       <table className="w-full border-collapse">
         <thead>
@@ -34,7 +50,7 @@ export default function Page() {
           <tr>
             <td className="px-4 py-4 border">Biology</td>
             <td className="px-4 py-4 border">129-cfd</td>
-            <td className="px-4 py-4 border">Intro to biology</td>
+            <td className="px-4 py-4 border">Intro to Biology</td>
             <td className="px-4 py-4 border">Rodriguez</td>
           </tr>
         </tbody>

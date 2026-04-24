@@ -58,7 +58,7 @@ export default function Teacher(){
                     <tr>
                         <td className="px-4 py-4 border">Biology</td>
                         <td className="px-4 py-4 border">129-cfd</td>
-                        <td className="px-4 py-4 border">Intro to biology</td>
+                        <td className="px-4 py-4 border">Intro to Biology</td>
                         <td className="px-4 py-4 border">Rodriguez</td>
                     </tr>
                     </tbody>
