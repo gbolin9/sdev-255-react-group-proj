@@ -20,6 +20,20 @@ export default function Page() {
    
     alert("Build course clicked");
   }
+  function Courses() {
+    
+    return (
+      <div className= "py-5">
+        <h2 className= "underline text-2xl">Availiable Courses</h2>
+        <ul>
+          <li>"fetch data goes here"</li>
+          <li>"here"</li>
+          <li>"and here"</li>
+         
+        </ul>
+
+      </div>
+    )
 
   return ( 
     <div className="max-w-600 mx-auto px-20 py-8 space-y-6">
@@ -60,16 +74,20 @@ export default function Page() {
             <th className="px-4 py-4 border">Course Name</th>
             <th className="px-4 py-4 border">Course ID</th>
             <th className="px-4 py-4 border">Course Description</th>
+            <th className="px-4 py-4 border">Subject Area</th>
+            <th className="px-4 py-4 border">Credits</th>
             <th className="px-4 py-4 border">Course Instructor</th>
           </tr>
         </thead>
 
         <tbody>
           <tr>
-            <td className="px-4 py-4 border">Biology</td>
-            <td className="px-4 py-4 border">129-cfd</td>
-            <td className="px-4 py-4 border">Intro to biology</td>
-            <td className="px-4 py-4 border">Rodriguez</td>
+              <td className="px-4 py-4 border">Biology</td>
+              <td className="px-4 py-4 border">129</td>
+              <td className="px-4 py-4 border">Intro to Biology</td>
+              <td className="px-4 py-4 border">Science</td>
+              <td className="px-4 py-4 border">3</td>
+              <td className="px-4 py-4 border">Rodriguez</td>
           </tr>
         </tbody>
       </table>
