@@ -1,113 +1,78 @@
 "use client";
 import { useState } from "react";
 import { CourseCodeInput } from "@/app/components/CourseCodeInput";
+import DataTable from "@/app/components/DataTable";
 
 export default function Page() {
-  const [student, setStudent] = useState("alex") //alex is a placeholder name
+  const [student] = useState("alex"); //removed setStudent, alex is being used a placeholder name
   const [addedCourses, setAddedCourses] = useState([]);
 
-  function handleAddCourse(code) {
-    setAddedCourses((prev) => [...prev, code]);
-  }
 
+async function handleAddCourse(courseId) {
+  try {
+    const res = await fetch(`/api/course/${courseId}`);
+    const course = await res.json();
+
+    setAddedCourses(prev => [...prev, course]);
+  } catch (err) {
+    console.error("Course not found", err);
+  }
+}
   function handleRemoveCourse(codeToRemove) {
-  setAddedCourses((prev) =>
-    prev.filter((code) => code !== codeToRemove)
-  )};
-
-  function handleClick() {
-    alert("Build course clicked");
+    setAddedCourses(prev =>
+      prev.filter(code => code !== codeToRemove)
+    );
   }
 
-  return ( 
-    <div className="max-w-600 mx-auto px-20 py-8 space-y-6">
-      <h1 className="text-center">Course Builder</h1>
+  return (
+    <div className="max-w-6xl mx-auto px-6 py-8 space-y-8">
 
-      {/* added styling to make button more apparent */}
-
-      <h1 className="text-3xl">Welcome {student}, to course builder</h1>
-
-      <CourseCodeInput onSubmit={handleAddCourse} />
-      {/* current courses */}
-      {/* needs to populate from DB */}
-      <h2 className="text-2xl">Current Courses:</h2>
-      <table className="w-full border-collapse"> 
-      </table>
-  
-    
+      <h1 className="text-3xl text-center">
+        Welcome {student}, to COURSE BUILDER
+      </h1>
+      {/* LIVE COURSES FROM DB */}
+      <DataTable
+        title="Available Courses"
+        endpoint="/api/course"
+        columns={[
+          { header: "ID", field: "_id" },
+          { header: "Name", field: "name" },
+          { header: "Instructor", field: "instructor" }
+        ]}
+      />
       
-      {/* <button
-          onClick={() => handleRemoveCourse(code)}
-          className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition"
-        >
-          Remove
-        </button> */}
 
-
-
-
-
+            {/* USER ADDED COURSES (local state) */}
+      <CourseCodeInput onSubmit={handleAddCourse} />
+      <h2 className="text-2xl">Selected Courses</h2>
 
       <table className="w-full border-collapse">
-      {/* needs to populate from DB */}
-      {/* courses to add or modify */}
         <thead>
           <tr>
-            <th className="px-4 py-4 border">Course Name</th>
-            <th className="px-4 py-4 border">Course ID</th>
-            <th className="px-4 py-4 border">Course Description</th>
-            <th className="px-4 py-4 border">Course Instructor</th>
+            <th className="border p-3">Course Code</th>
           </tr>
         </thead>
-
         <tbody>
-          {addedCourses.map((code, index) => (
-            <tr key={index}>
-              <td className="px-4 py-4 border">Course</td>
-              <td className="px-4 py-4 border">{code}</td>
-              <td className="px-4 py-4 border">—</td>
-              <td className="px-4 py-4 border">—</td>
+          {addedCourses.map((course) => (
+            <tr key={course._id}>
+              <td className="border p-3">{course.name}</td>
+              <td className="border p-3">{course._id}</td>
+              <td className="border p-3">{course.description}</td>
+              <td className="border p-3">{course.instructor}</td>
+
+              {/* REMOVE BUTTON */}
+              <td className="border p-3">
+                <button
+                  onClick={() => handleRemoveCourse(course._id)}
+                  className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                >
+                  Remove
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
-
-      {/*unsure if button is needed*/ }
-      {/* <button
-        className="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 active:scale-95 transition-all duration-150"
-        onClick={handleClick}
-      >
-        Build course
-      </button> */}
-
-      <h2 className="text-2xl">Available Courses</h2>
-      <table className="w-full border-collapse">
-      {/* needs to populate from DB */}
-      {/* course catalog */}
-        <thead>
-          <tr>
-            <th className="px-4 py-4 border">Course Name</th>
-            <th className="px-4 py-4 border">Course ID</th>
-            <th className="px-4 py-4 border">Course Description</th>
-            <th className="px-4 py-4 border">Subject Area</th>
-            <th className="px-4 py-4 border">Credits</th>
-            <th className="px-4 py-4 border">Course Instructor</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-              <td className="px-4 py-4 border">Biology</td>
-              <td className="px-4 py-4 border">129</td>
-              <td className="px-4 py-4 border">Intro to Biology</td>
-              <td className="px-4 py-4 border">Science</td>
-              <td className="px-4 py-4 border">3</td>
-              <td className="px-4 py-4 border">Rodriguez</td>
-          </tr>
-        </tbody>
-      </table>
-      
     </div>
-    
   );
 }
