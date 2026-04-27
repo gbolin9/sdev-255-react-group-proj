@@ -34,22 +34,22 @@ export function LoadStudent () {
     
   </>)
 }
-function Courses() {
+// function Courses() {
     
-  return (
-    <div className= "py-5">
-      <h2 className= "underline text-2xl">Availiable Courses</h2>
-      <ul>
-        <li>"fetch data goes here"</li>
-        <li>"here"</li>
-        <li>"and here"</li>
+//   return (
+//     <div className= "py-5">
+//       <h2 className= "underline text-2xl">Availiable Courses</h2>
+//       <ul>
+//         <li>"fetch data goes here"</li>
+//         <li>"here"</li>
+//         <li>"and here"</li>
        
-      </ul>
+//       </ul>
 
-    </div>
-  )
+//     </div>
+//   )
 
-}
+// }
 export default function RootLayout({ children }) {
   return (
     <html
@@ -68,13 +68,15 @@ export default function RootLayout({ children }) {
            
           </nav>
         </div>
-        <div className="flex justify-center text-xl px-5">
+
+        {/* This code causes every page to have a list shown up. I do not believe that is needed*/
+        /* <div className="flex justify-center text-xl px-5">
           <h1 className="text-xl">The following are our currently available courses: </h1>
       
             <div className="flex justify-center mx-auto">
               <Courses/>
             </div>
-        </div>
+        </div> */}
 
         {children}
       </body>
