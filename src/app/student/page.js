@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react"
+import { useState } from "react";
 import { CourseCodeInput } from "@/app/components/CourseCodeInput";
 
 export default function Page() {
@@ -13,27 +13,11 @@ export default function Page() {
   function handleRemoveCourse(codeToRemove) {
   setAddedCourses((prev) =>
     prev.filter((code) => code !== codeToRemove)
-  );
-}
+  )};
 
   function handleClick() {
-   
     alert("Build course clicked");
   }
-  function Courses() {
-    
-    return (
-      <div className= "py-5">
-        <h2 className= "underline text-2xl">Availiable Courses</h2>
-        <ul>
-          <li>"fetch data goes here"</li>
-          <li>"here"</li>
-          <li>"and here"</li>
-         
-        </ul>
-
-      </div>
-    )
 
   return ( 
     <div className="max-w-600 mx-auto px-20 py-8 space-y-6">
@@ -67,8 +51,8 @@ export default function Page() {
   
     <h2 className="text-2xl">Available Courses</h2>
       <table className="w-full border-collapse">
-       {/* needs to populate from DB */}
-       {/* course catalog */}
+      {/* needs to populate from DB */}
+      {/* course catalog */}
         <thead>
           <tr>
             <th className="px-4 py-4 border">Course Name</th>
@@ -93,7 +77,7 @@ export default function Page() {
       </table>
       <CourseCodeInput onSubmit={handleAddCourse} />
       
-       {/* <button
+      {/* <button
           onClick={() => handleRemoveCourse(code)}
           className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition"
         >
@@ -106,8 +90,8 @@ export default function Page() {
 
 
       <table className="w-full border-collapse">
-       {/* needs to populate from DB */}
-       {/* courses to add or modify */}
+      {/* needs to populate from DB */}
+      {/* courses to add or modify */}
         <thead>
           <tr>
             <th className="px-4 py-4 border">Course Name</th>
@@ -128,8 +112,8 @@ export default function Page() {
           ))}
         </tbody>
       </table>
-     <button
-        className="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 active:scale-95 transition-all duration-150er"
+      <button
+        className="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 active:scale-95 transition-all duration-150"
         onClick={handleClick}
       >
         Build course
