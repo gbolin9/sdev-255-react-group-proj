@@ -1,7 +1,7 @@
 {
   "name": "react-migration",
   "version": "0.1.0",
-  "homepage": "src\\app\\page.js",
+  "homepage": ".",
   "private": true,
   "scripts": {
     "dev": "next dev",
