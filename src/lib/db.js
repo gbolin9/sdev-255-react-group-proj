@@ -9,14 +9,23 @@
 
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://sdevgroupproject:<Passwordsdev255>@cluster0.v9j06oo.mongodb.net/?appName=Cluster0';
 
 if (!MONGODB_URI) {
   throw new Error("Please define MONGODB_URI in .env");
 }
 
-export async function connectDB() {
-  if (mongoose.connection.readyState === 1) return;
+export async function connectDB(){
+  try{
+    await mongoose.connect(MONGODB_URI,{
+      useNewUrlParser: true,
+      useInifiedTopology: true,
+    });
 
-  return mongoose.connect(MONGODB_URI);
-}
+  }
+  catch(err){
+    process.exit(1);
+  }
+
+  };
+module.exports = connectDB;

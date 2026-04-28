@@ -1,5 +1,6 @@
 import { connectDB } from "@/lib/db";
-import Course from "@/models/Course";
+import Course from "@/app/models/course";
+
 
 // UPDATE course
 export async function PUT(req, { params }) {

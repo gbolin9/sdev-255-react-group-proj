@@ -1,5 +1,7 @@
 import { connectDB } from "@/lib/db";
-import Teacher from "@/models/Teacher";
+import Teacher from "@/app/models/teacher";
+
+
 
 export async function GET() {
   await connectDB();
