@@ -1,33 +1,27 @@
 import { connectDB } from "@/lib/db";
 import Course from "@/app/models/course";
+import { NextResponse } from "next/server";
 
-
-// UPDATE course
 export async function PUT(req, { params }) {
-  await connectDB();
-
-  const body = await req.json();
-
-  const updated = await Course.findByIdAndUpdate(
-    params.id,
-    {
-      id: body.id,
-      name: body.name,
-      subject: body.subject,
-      description: body.description,
-      credits: Number(body.credits),
-    },
-    { new: true }
-  );
-
-  return Response.json(updated);
-}
-
-// DELETE course
-export async function DELETE(req, { params }) {
-  await connectDB();
-
-  await Course.findByIdAndDelete(params.id);
-
-  return Response.json({ success: true });
+  try {
+    await connectDB();
+    const body = await req.json();
+    const updated = await Course.findByIdAndUpdate(
+      params.id,
+      { 
+        id: body.id, 
+        name: body.name, 
+        subject: body.subject, 
+        description: body.description, 
+        credits: Number(body.credits) 
+      },
+      { new: true, runValidators: true } // Ensures validation rules are run
+    );
+    
+    if (!updated) return NextResponse.json({ error: "Course not found" }, { status: 404 });
+    
+    return NextResponse.json(updated);
+  } catch (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
 }
