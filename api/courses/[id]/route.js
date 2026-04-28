@@ -1,6 +1,7 @@
 import { connectDB } from "@/lib/db";
 import Course from "@/app/models/course";
 import { NextResponse } from "next/server";
+export const dynamic = 'force-static';
 
 export async function PUT(req, { params }) {
   try {
